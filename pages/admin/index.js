@@ -1,5 +1,18 @@
 import React, { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
+import AWS from 'aws-sdk';
+import dotenv from 'dotenv';
+dotenv.config();
+
+console.log("jjhjn",process.env.ID);
+
+AWS.config.update({
+    accessKeyId: process.env.ID,
+    secretAccessKey: process.env.SECRET,
+    region: process.env.REGION
+});
+
+const s3 = new AWS.S3();
 
 export default function AdminHome() {
     const [image, setImage] = useState({
@@ -20,9 +33,24 @@ export default function AdminHome() {
     const { getRootProps, getInputProps } = useDropzone({
         accept: 'image/*',
         onDrop: (acceptedFiles) => {
-            setImage({
-                ...image,
-                imageUrl: URL.createObjectURL(acceptedFiles[0]),
+            const file = acceptedFiles[0];
+            const uploadParams = {
+                Bucket: process.env.BUCKET_NAME,
+                Key: file.name,
+                Body: file,
+                ACL: 'public-read'
+            };
+    
+            s3.upload(uploadParams, (err, data) => {
+                if (err) {
+                    console.log("Error uploading file:", err);
+                } else {
+                    setImage({
+                        ...image,
+                        imageUrl: data.Location,
+                    });
+                    console.log(data)
+                }
             });
         },
     });
@@ -63,7 +91,7 @@ export default function AdminHome() {
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="imageUrl">
-                        Image URL
+                        Image
                     </label>
                     <div {...getRootProps()} className="border-2 border-gray-300 border-dashed rounded-md p-4">
                         <input {...getInputProps()} id="imageUrl" />
