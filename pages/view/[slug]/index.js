@@ -75,10 +75,10 @@ const getImageQ = gql`query MyQuery($slug: String!) {
             </div>
             {sceneLoaded && (
             <div className="control-panel grid grid-cols-3 gap-2 p-2 absolute bottom-0 left-0 right-0 m-auto w-64">
-                <button className="col-start-2 justify-self-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" onClick={console.log("sad")}>
+                <button className="col-start-2 justify-self-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" onClick={() => router.push(`/view/${image.fleft}`)}>
                     &#8598; {/* Left-Up arrow */}
                 </button>
-                <button className="col-start-2 justify-self-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" onClick={console.log("sad")}>
+                <button className="col-start-2 justify-self-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" onClick={() => router.push(`/view/${image.front}`)}>
                     &#9650; {/* Up arrow */}
                 </button>
                 <button className="col-start-3 justify-self-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" onClick={console.log("sad")}>
@@ -93,7 +93,7 @@ const getImageQ = gql`query MyQuery($slug: String!) {
                 <button className="col-start-2 justify-self-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" onClick={console.log("sad")}>
                     &#8601; {/* Left-Down arrow */}
                 </button>
-                <button className="col-start-2 justify-self-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" onClick={console.log("sad")}>
+                <button className="col-start-2 justify-self-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" onClick={() => router.push(`/view/${image.back}`)}>
                     &#9660; {/* Down arrow */}
                 </button>
                 <button className="col-start-3 justify-self-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" onClick={console.log("sad")}>

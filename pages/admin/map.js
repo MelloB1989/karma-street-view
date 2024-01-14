@@ -46,7 +46,7 @@ export default function AdminHome() {
         e.preventDefault();
         const response = await getImageId({ variables: { slug: slug } });
         const id = await response.data.queryImagesByIdSlugIndex.items[0].id
-        setImage({
+        await setImage({
             ...image,
             id: id
         });
