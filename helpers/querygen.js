@@ -4,19 +4,27 @@ const querygen = (query, params) => {
     if(query === "addImage")
     return gql`mutation MyMutation {
         createImage(input: {
-            back: "${params?.back}", 
-            bleft: "${params?.bleft}", 
-            bright: "${params?.bright}", 
-            fleft: "${params?.fleft}", 
             description: "${params?.description}", 
-            fright: "${params?.fright}", 
-            front: "${params?.front}", 
-            slug: "${params?.slug}", 
-            right: "${params?.right}", 
+            slug: "${params?.slug}",  
             name: "${params?.name}", 
-            left: "${params?.left}", 
-            imageUrl: "${params?.imageUrl}"
+            imageUrl: "${params?.imageURL}"
         }) {
+          id
+        }
+      }`
+    if(query === "updateImage")
+      return gql`mutation MyMutation {
+        updateImage(input: {
+        back: "${params?.back}", 
+        bleft: "${params?.bleft}", 
+        bright: "${params?.bright}", 
+        fleft: "${params?.fleft}",  
+        fright: "${params?.fright}", 
+        front: "${params?.front}",
+        right: "${params?.right}", 
+        left: "${params?.left}",
+        id: "${params?.id}"
+      }) {
           id
         }
       }`

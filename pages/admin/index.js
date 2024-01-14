@@ -1,18 +1,8 @@
 import React, { useState } from 'react';
-import { useDropzone } from 'react-dropzone';
-import AWS from 'aws-sdk';
-import dotenv from 'dotenv';
-dotenv.config();
-
-console.log("jjhjn",process.env.ID);
-
-AWS.config.update({
-    accessKeyId: process.env.ID,
-    secretAccessKey: process.env.SECRET,
-    region: process.env.REGION
-});
-
-const s3 = new AWS.S3();
+import querygen from "@/helpers/querygen";
+import { gql, useMutation } from "@apollo/client";
+import { useQuery } from "@apollo/client";
+import { toast } from 'react-toastify';
 
 export default function AdminHome() {
     const [image, setImage] = useState({
@@ -20,39 +10,6 @@ export default function AdminHome() {
         description: '',
         slug: '',
         imageUrl: '',
-        front: '',
-        back: '',
-        left: '',
-        right: '',
-        fleft: '',
-        fright: '',
-        bleft: '',
-        bright: '',
-    });
-
-    const { getRootProps, getInputProps } = useDropzone({
-        accept: 'image/*',
-        onDrop: (acceptedFiles) => {
-            const file = acceptedFiles[0];
-            const uploadParams = {
-                Bucket: process.env.BUCKET_NAME,
-                Key: file.name,
-                Body: file,
-                ACL: 'public-read'
-            };
-    
-            s3.upload(uploadParams, (err, data) => {
-                if (err) {
-                    console.log("Error uploading file:", err);
-                } else {
-                    setImage({
-                        ...image,
-                        imageUrl: data.Location,
-                    });
-                    console.log(data)
-                }
-            });
-        },
     });
 
     const handleChange = (e) => {
@@ -62,10 +19,17 @@ export default function AdminHome() {
         });
     };
 
-    const handleSubmit = (e) => {
+    const [addImage, { data, error, loading }] = useMutation(gql`mutation MyMutation($input: CreateImageInput!) {
+        createImage(input: $input) {
+          id
+        }
+      }`);
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Here you would typically send the image object to your API
         console.log(image);
+        const response = await addImage({ variables: { input: image } });
+        if(response.data) toast.success("Image added successfully");
+        if(response.error) toast.error("Error adding image");
     };
 
     return (
@@ -90,15 +54,10 @@ export default function AdminHome() {
                     <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="slug" type="text" name="slug" onChange={handleChange} />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="imageUrl">
-                        Image
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="slug">
+                        Image URL
                     </label>
-                    <div {...getRootProps()} className="border-2 border-gray-300 border-dashed rounded-md p-4">
-                        <input {...getInputProps()} id="imageUrl" />
-                        <div className="flex justify-center">
-                            <p className="text-gray-700">Drag 'n' drop some files here, or click to select files</p>
-                        </div>
-                    </div>
+                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="imageUrl" type="text" name="imageUrl" onChange={handleChange} />
                 </div>
                 {/* Add similar input fields for front, back, left, right, fleft, fright, bleft, bright */}
                 <div className="flex items-center justify-between">
