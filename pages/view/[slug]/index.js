@@ -59,7 +59,7 @@ const getImageQ = gql`query MyQuery($slug: String!) {
 
     return(
         <>
-        <div className="h-screen flex flex-col">
+        <div className="h-screen flex flex-col relative">
             <div className="flex-grow">
                 <a-scene embedded onLoad={() => setSceneLoaded(true)}>
                     <a-entity camera look-controls wasd-controls position="0 1.6 0"></a-entity>
@@ -74,7 +74,7 @@ const getImageQ = gql`query MyQuery($slug: String!) {
                 </a-scene>
             </div>
             {sceneLoaded && (
-            <div className="control-panel grid grid-cols-3 gap-2 p-2">
+            <div className="control-panel grid grid-cols-3 gap-2 p-2 absolute bottom-0 left-0 right-0 m-auto w-64">
                 <button className="col-start-2 justify-self-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" onClick={console.log("sad")}>
                     &#8598; {/* Left-Up arrow */}
                 </button>
