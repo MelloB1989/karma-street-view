@@ -48,34 +48,53 @@ function loadExternalScript(src) {
                     />
                 </a-scene>
             </div>
-            {sceneLoaded && (
-            <div className="control-panel grid grid-cols-3 gap-2 p-2 absolute bottom-0 left-0 right-0 m-auto w-64">
-                <button className="col-start-2 justify-self-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" onClick={() => router.push(`/view/${image.fleft}`)}>
-                    &#8598; {/* Left-Up arrow */}
-                </button>
-                <button className="col-start-2 justify-self-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" onClick={() => router.push(`/view/${image.front}`)}>
-                    &#9650; {/* Up arrow */}
-                </button>
-                <button className="col-start-3 justify-self-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" onClick={console.log("sad")}>
-                    &#8599; {/* Right-Up arrow */}
-                </button>
-                <button className="justify-self-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" onClick={console.log("sad")}>
-                    &#9664; {/* Left arrow */}
-                </button>
-                <button className="col-start-3 justify-self-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" onClick={console.log("sad")}>
-                    &#9654; {/* Right arrow */}
-                </button>
-                <button className="col-start-2 justify-self-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" onClick={console.log("sad")}>
-                    &#8601; {/* Left-Down arrow */}
-                </button>
-                <button className="col-start-2 justify-self-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" onClick={() => router.push(`/view/${image.back}`)}>
-                    &#9660; {/* Down arrow */}
-                </button>
-                <button className="col-start-3 justify-self-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" onClick={console.log("sad")}>
-                    &#8600; {/* Right-Down arrow */}
-                </button>
+            <div className="absolute top-0 right-0">
+                <img src="https://noobsverse-internal.s3.ap-south-1.amazonaws.com/assets/karma-street-view-removebg-preview.png" style={{opacity: 0.8}} alt="logo" width="100"/>
             </div>
-            )}
+            {sceneLoaded && (
+<div className="control-panel grid grid-cols-3 gap-2 p-2 absolute bottom-0 left-0 right-0 m-auto w-64">
+    {image.fleft && (
+        <button className="col-start-2 justify-self-center" onClick={() => router.push(`/view/${image.fleft}`)}>
+            <img src="https://cdn.global.noobsverse.com/arrows/fleft.png" width="300" alt="Left-Up arrow" />
+        </button>
+    )}
+    {image.front && (
+        <button className="col-start-2 justify-self-center" onClick={() => router.push(`/view/${image.front}`)}>
+            <img src="https://cdn.global.noobsverse.com/arrows/front.png" width="300" alt="Up arrow" />
+        </button>
+    )}
+    {image.fright && (
+        <button className="col-start-3 justify-self-center" onClick={() => router.push(`/view/${image.fright}`)}>
+            <img src="https://cdn.global.noobsverse.com/arrows/fright.png" width="300" alt="Right-Up arrow" />
+        </button>
+    )}
+    {image.left && (
+        <button className="justify-self-center" onClick={() => router.push(`/view/${image.left}`)}>
+            <img src="https://cdn.global.noobsverse.com/arrows/left.png" width="300" alt="Left arrow" />
+        </button>
+    )}
+    {image.right && (
+        <button className="col-start-3 justify-self-center" onClick={() => router.push(`/view/${image.right}`)}>
+            <img src="https://cdn.global.noobsverse.com/arrows/right.png" width="300" alt="Right arrow" />
+        </button>
+    )}
+    {image.bleft && (
+        <button className="col-start-2 justify-self-center" onClick={() => router.push(`/view/${image.bleft}`)}>
+            <img src="https://cdn.global.noobsverse.com/arrows/bleft.png" width="300" alt="Left-Down arrow" />
+        </button>
+    )}
+    {image.back && (
+        <button className="col-start-2 justify-self-center" onClick={() => router.push(`/view/${image.back}`)}>
+            <img src="https://cdn.global.noobsverse.com/arrows/back.png" width="300" alt="Down arrow" />
+        </button>
+    )}
+    {image.bright && (
+        <button className="col-start-3 justify-self-center" onClick={() => router.push(`/view/${image.bright}`)}>
+            <img src="https://cdn.global.noobsverse.com/arrows/bright.png" width="300" alt="Right-Down arrow" />
+        </button>
+    )}
+</div>
+)}
         </div>
         </>
     )

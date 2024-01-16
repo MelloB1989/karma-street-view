@@ -45,7 +45,6 @@ export default async function Page({params}: { params: { slug: string } }){
     const r = querygen("getImage", {slug});
     const data = await client.request<ImageResponseType>(r || '');
     const imageData = data.queryImagesByIdSlugIndex.items[0];
-    console.log(data)
 
     return (
 <>
