@@ -109,7 +109,7 @@ export default function Home(){
         Our platform provides a unique 360° view of businesses, allowing you to virtually step inside and experience what they have to offer.
         </p>
         <div className="flex flex-col items-center gap-4 lg:flex-row">
-          <button className="flex items-center py-4 text-sm font-bold text-white px-7 bg-purple-blue-500 hover:bg-purple-blue-600 focus:ring-4 focus:ring-purple-blue-100 transition duration-300 rounded-xl">
+          <button className="flex items-center py-4 text-sm font-bold text-white px-7 bg-purple-blue-500 hover:bg-purple-blue-600 focus:ring-4 focus:ring-purple-blue-100 transition duration-300 rounded-xl" onClick={()=>window.location.href='/view/main-gate'}>
             View Demo
           </button>
           <button className="flex items-center py-4 text-sm font-medium px-7 text-dark-grey-700 hover:text-dark-grey-900 transition duration-300 rounded-2xl">
