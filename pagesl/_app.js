@@ -21,9 +21,9 @@ export default function MyApp({ Component, pageProps }) {
       <ApolloProvider client={apolloClient}>
         <Head>
           {/* Title Tag */}
-          <title>{"KarmaPay Street View"}</title>
+          <title>{"Karma Street View"}</title>
           {/* Meta Description Attribute */}
-          <meta name="description" content={"KarmaPay is an open-source project that aims to simplify online payments by providing a unified API endpoint for multiple payment gateways. It abstracts the complexities of integration, allowing developers to seamlessly work with various payment providers while maintaining a single, consistent interface."} />
+          <meta name="description" content={"Our platform provides a unique 360° view of businesses, allowing you to virtually step inside and experience what they have to offer."} />
           {/* Meta Robots Attribute */}
           <meta name="robots" content="index, follow" />
           {/* Meta Keywords Attribute (less important nowadays) */}

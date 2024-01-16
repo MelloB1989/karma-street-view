@@ -1,3 +1,4 @@
+"use client";
 export default function Home(){
     return(
         <>
@@ -41,7 +42,6 @@ export default function Home(){
         </button>
       </div>
       <button
-        onclick="(() => { this.closest('.group').classList.toggle('open')})()"
         className="flex md:hidden"
       >
         <svg

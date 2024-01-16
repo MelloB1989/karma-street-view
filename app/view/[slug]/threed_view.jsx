@@ -1,6 +1,6 @@
-import { useRouter } from 'next/router';
+"use client";
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { gql, useQuery } from "@apollo/client";
 import { toast } from 'react-toastify';
 import dynamic from 'next/dynamic';
 
@@ -19,43 +19,18 @@ function loadExternalScript(src) {
     document.body.appendChild(script);
 }
 
-const getImageQ = gql`query MyQuery($slug: String!) {
-    queryImagesByIdSlugIndex(slug: $slug) {
-    items {
-      back
-      bleft
-      bright
-      description
-      fleft
-      fright
-      front
-      id
-      imageUrl
-      left
-      name
-      right
-      slug
-    }
-  }
-  }`;
-
-  export default function Image() {
+  export default function ThreedView({ImageData}) {
     const router = useRouter();
-    const { slug } = router.query;
     const [image, setImage] = useState();
     const [sceneLoaded, setSceneLoaded] = useState(false);
-    console.log(sceneLoaded)
-
-    const { data, error, loading } = useQuery(getImageQ, { variables: { slug: slug } });
 
     useEffect(() => {
         setTimeout(()=>{
             loadExternalScript('https://aframe.io/releases/1.5.0/aframe.min.js');
             setSceneLoaded(true);
           }, 2000);
-        if(data) setImage(data.queryImagesByIdSlugIndex.items[0]);
-        if(error) toast.error("Error fetching image");
-    }, [data, error]);
+          setImage(ImageData)
+    }, []);
 
     return(
         <>

@@ -12,7 +12,7 @@ const querygen = (query, params) => {
           id
         }
       }`
-    if(query === "updateImage")
+    else if(query === "updateImage")
       return gql`mutation MyMutation {
         updateImage(input: {
         back: "${params?.back}", 
@@ -27,6 +27,26 @@ const querygen = (query, params) => {
       }) {
           id
         }
+      }`
+    else if(query === "getImage")
+      return gql`query MyQuery {
+        queryImagesByIdSlugIndex(slug: \"${params.slug}\") {
+        items {
+          back
+          bleft
+          bright
+          description
+          fleft
+          fright
+          front
+          id
+          imageUrl
+          left
+          name
+          right
+          slug
+        }
+      }
       }`
 }
 
