@@ -1,7 +1,7 @@
 import {GraphQLClient} from 'graphql-request';
 import ThreedView from './threed_view';
 import querygen from '../../../helpers/querygen';
-import Layout from './layout'
+import Head from 'next/head';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -42,13 +42,25 @@ interface Item {
 
 export default async function Page({params}: { params: { slug: string } }){
     const {slug} = params;
-    const data = await client.request<ImageResponseType>(querygen("getImage",slug));
+    const r = querygen("getImage", {slug});
+    const data = await client.request<ImageResponseType>(r || '');
     const imageData = data.queryImagesByIdSlugIndex.items[0];
     console.log(data)
 
     return (
-<Layout description={imageData.description} title={imageData.name} og={imageData.imageUrl}>
+<>
+<Head>
+        <link rel="icon" href="https://noobsverse-internal.s3.ap-south-1.amazonaws.com/assets/karma-street-view-removebg-preview.png" />
+        <title>{imageData.name ? `${imageData.name} | Karma Street View` : 'Karma Street View'}</title>
+        <meta
+              property="og:image"
+              content={
+                imageData.imageUrl ? imageData.imageUrl : "https://noobsverse-internal.s3.ap-south-1.amazonaws.com/assets/karma-street-view-removebg-preview.png"
+              }
+            />
+        <meta name="description" content={imageData.description ? imageData.description : 'Our platform provides a unique 360° view of businesses, allowing you to virtually step inside and experience what they have to offer.'} />
+      </Head>
     <ThreedView ImageData={imageData}/>
-    </Layout>
+    </>
     )
 }

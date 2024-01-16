@@ -1,6 +1,9 @@
 import { gql } from "@apollo/client"
 
-const querygen = (query, params) => {
+export default function querygen(query: string, params: any){
+  if (!params || !query) {
+    throw new Error('params or query is undefined');
+}
     if(query === "addImage")
     return gql`mutation MyMutation {
         createImage(input: {
@@ -30,7 +33,7 @@ const querygen = (query, params) => {
       }`
     else if(query === "getImage")
       return gql`query MyQuery {
-        queryImagesByIdSlugIndex(slug: \"${params.slug}\") {
+        queryImagesByIdSlugIndex(slug: \"${params?.slug}\") {
         items {
           back
           bleft
@@ -49,5 +52,3 @@ const querygen = (query, params) => {
       }
       }`
 }
-
-module.exports = querygen

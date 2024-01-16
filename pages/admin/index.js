@@ -33,8 +33,8 @@ export default function AdminHome() {
     };
 
     return (
-        <div className="flex justify-center mt-6">
-            <form onSubmit={handleSubmit} className="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div className="flex justify-center mt-6 bg-gray-900">
+            <form onSubmit={handleSubmit} className="w-full max-w-lg shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
                         Name
