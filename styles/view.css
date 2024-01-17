@@ -1,0 +1,27 @@
+/* control panel */
+
+.control-panel {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
+  height: 8vh;
+  gap: 1vw;
+  margin-bottom: 2vh;
+}
+
+.left,
+.right,
+.front,
+.back,
+.fleft,
+.fright,
+.bleft,
+.bright {
+  height: 6vh;
+  width: 5vw;
+  border-radius: 5%;
+}
