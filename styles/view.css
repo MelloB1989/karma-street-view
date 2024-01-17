@@ -1,0 +1,132 @@
+/* control panel */
+
+.control-panel {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+  height: 8vh;
+  gap: 2vw;
+  margin-bottom: 2vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+}
+
+.left,
+.right,
+.front,
+.back,
+.fleft,
+.fright,
+.bleft,
+.bright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6vh;
+  width: 5vw;
+  border-radius: 5%;
+  object-fit: contain;
+  background-color: grey;
+  padding: 1%;
+}
+
+.left img,
+.right img,
+.front img,
+.back img,
+.fleft img,
+.fright img,
+.bleft img,
+.bright img {
+  height: 4vh;
+  width: 4vw;
+}
+
+.karma-logo {
+  position: absolute;
+  right: 1vw;
+  top: 1vh;
+  width: 6vw;
+}
+
+.a-enter-vr-buttom {
+  position: absolute;
+  bottom: 5vh;
+}
+
+.loader {
+  position: absolute;
+  width: 5vw;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loader-div {
+  width: 100vw;
+  height: 100vh;
+}
+
+.copy-clipboard {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 7%;
+  top: 2vh;
+  left: 2vh;
+  background-color: grey;
+}
+
+.copy-clipboard img {
+  height: 3vh;
+  width: 3vw;
+}
+
+@media (width < 576px) {
+  .control-panel {
+    width: 100vw;
+    margin-bottom: 0;
+    gap: 4vw;
+    border-radius: 0;
+  }
+
+  .left,
+  .right,
+  .front,
+  .back,
+  .fleft,
+  .fright,
+  .bleft,
+  .bright {
+    width: 10vw;
+    border-radius: 10%;
+  }
+
+  .left img,
+  .right img,
+  .front img,
+  .back img,
+  .fleft img,
+  .fright img,
+  .bleft img,
+  .bright img {
+    height: 6vh;
+    width: 5vw;
+  }
+
+  .karma-logo {
+    width: 15vw;
+  }
+
+  .copy-clipboard {
+    height: 30px;
+    width: 30px;
+  }
+}
