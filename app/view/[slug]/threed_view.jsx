@@ -62,10 +62,12 @@ export default function ThreedView({ ImageData }) {
           />
         </div>
         {!sceneLoaded && (
-          <div className="fixed inset-0 flex items-center justify-center bg-gray-500 z-[50]">
+          <div className=" loader-div fixed inset-0 flex items-center justify-center bg-gray-500 z-[50]">
             <img
-              src="https://cdn.pixabay.com/animation/2023/10/08/03/19/03-19-26-213_512.gif"
+              // src="https://cdn.pixabay.com/animation/2023/10/08/03/19/03-19-26-213_512.gif"
+              src="/loader.gif"
               alt="Loading..."
+              className="loader"
             />
           </div>
         )}
