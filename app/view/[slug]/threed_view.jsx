@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import dynamic from "next/dynamic";
+import CopyToClipboardButton from "@/app/components/clipboard";
 
 const Aframe = dynamic(
   () => {
@@ -61,6 +62,10 @@ export default function ThreedView({ ImageData }) {
             width="100"
           />
         </div>
+        <CopyToClipboardButton></CopyToClipboardButton>
+        {/* <a className="copy-clipboard">
+          <img src="/copy.svg"></img>
+        </a> */}
         {!sceneLoaded && (
           <div className=" loader-div fixed inset-0 flex items-center justify-center bg-gray-500 z-[50]">
             <img
