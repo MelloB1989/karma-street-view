@@ -53,7 +53,7 @@ export default function ThreedView({ ImageData }) {
             />
           </a-scene>
         </div>
-        <div className="absolute top-0 right-0">
+        <div className="karma-logo">
           <img
             src="https://noobsverse-internal.s3.ap-south-1.amazonaws.com/assets/karma-street-view-removebg-preview.png"
             style={{ opacity: 0.8, userSelect: "none" }}
@@ -77,7 +77,7 @@ export default function ThreedView({ ImageData }) {
                 onClick={() => router.push(`/view/${image.fleft}`)}
               >
                 <img
-                  src="https://cdn.global.noobsverse.com/arrows/fleft.png"
+                  src="https://cdn.global.noobsverse.com/arrows/fleft.svg"
                   style={{ userSelect: "none" }}
                   width="300"
                   alt="Left-Up arrow"
@@ -90,7 +90,7 @@ export default function ThreedView({ ImageData }) {
                 onClick={() => router.push(`/view/${image.front}`)}
               >
                 <img
-                  src="https://cdn.global.noobsverse.com/arrows/front.png"
+                  src="https://cdn.global.noobsverse.com/arrows/front.svg"
                   style={{ userSelect: "none" }}
                   width="300"
                   alt="Up arrow"
@@ -103,7 +103,7 @@ export default function ThreedView({ ImageData }) {
                 onClick={() => router.push(`/view/${image.fright}`)}
               >
                 <img
-                  src="https://cdn.global.noobsverse.com/arrows/fright.png"
+                  src="https://cdn.global.noobsverse.com/arrows/fright.svg"
                   style={{ userSelect: "none" }}
                   width="300"
                   alt="Right-Up arrow"
@@ -116,7 +116,7 @@ export default function ThreedView({ ImageData }) {
                 onClick={() => router.push(`/view/${image.left}`)}
               >
                 <img
-                  src="https://cdn.global.noobsverse.com/arrows/left.png"
+                  src="https://cdn.global.noobsverse.com/arrows/left.svg"
                   style={{ userSelect: "none" }}
                   width="300"
                   alt="Left arrow"
@@ -129,7 +129,7 @@ export default function ThreedView({ ImageData }) {
                 onClick={() => router.push(`/view/${image.right}`)}
               >
                 <img
-                  src="https://cdn.global.noobsverse.com/arrows/right.png"
+                  src="https://cdn.global.noobsverse.com/arrows/right.svg"
                   style={{ userSelect: "none" }}
                   width="300"
                   alt="Right arrow"
@@ -142,7 +142,7 @@ export default function ThreedView({ ImageData }) {
                 onClick={() => router.push(`/view/${image.bleft}`)}
               >
                 <img
-                  src="https://cdn.global.noobsverse.com/arrows/bleft.png"
+                  src="https://cdn.global.noobsverse.com/arrows/bleft.svg"
                   style={{ userSelect: "none" }}
                   width="300"
                   alt="Left-Down arrow"
@@ -155,7 +155,7 @@ export default function ThreedView({ ImageData }) {
                 onClick={() => router.push(`/view/${image.back}`)}
               >
                 <img
-                  src="https://cdn.global.noobsverse.com/arrows/back.png"
+                  src="https://cdn.global.noobsverse.com/arrows/down.svg"
                   style={{ userSelect: "none" }}
                   width="300"
                   alt="Down arrow"
@@ -168,7 +168,7 @@ export default function ThreedView({ ImageData }) {
                 onClick={() => router.push(`/view/${image.bright}`)}
               >
                 <img
-                  src="https://cdn.global.noobsverse.com/arrows/bright.png"
+                  src="https://cdn.global.noobsverse.com/arrows/bright.svg"
                   style={{ userSelect: "none" }}
                   width="300"
                   alt="Right-Down arrow"
