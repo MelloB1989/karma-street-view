@@ -10,7 +10,7 @@ const Aframe = dynamic(
     import("aframe");
     return import("aframe-extras");
   },
-  { ssr: false }
+  { ssr: false },
 );
 
 function loadExternalScript(src) {
@@ -35,7 +35,7 @@ export default function ThreedView({ ImageData }) {
 
   return (
     <>
-      <div className="h-screen flex flex-col relative">
+      <div className="h-screen flex flex-col relative h-dvh">
         <div className="flex-grow">
           <a-scene embedded onLoad={() => setSceneLoaded(true)}>
             <a-entity
