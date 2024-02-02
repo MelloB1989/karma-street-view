@@ -130,3 +130,7 @@
     width: 30px;
   }
 }
+
+.h-dvh {
+  height: 100dvh !important;
+}
