@@ -1,6 +1,6 @@
 # Karma Street View
 
-![KarmaStreet View logo](https://noobsverse-internal.s3.ap-south-1.amazonaws.com/assets/karma-street-view-removebg-preview.png)
+![KarmaStreet View logo](https://noobsverse-cdn-public.s3.ap-south-1.amazonaws.com/assets/karma-street-view-removebg-preview.png)
 
 Traditional mapping services, such as Google Maps, fall short in meeting the specialized needs of private institutions like colleges. The inability to provide integrated outdoor and indoor 360-degree views of the campus poses a significant challenge. Moreover, concerns related to copyright from both Google and the institution further restrict the implementation of a comprehensive mapping solution. As a result, there is a critical need for a proprietary mapping system designed specifically for private institutions, offering a secure and tailored approach to address these limitations and enhance the overall mapping experience within the environment.
 
